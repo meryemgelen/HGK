@@ -1,14 +1,15 @@
 package com.hgk;
 
-public class Personal {
+public class Personal implements DataItem<Integer>{
 
     public Personal(int id, String name, String surName) {
-        this.Id = id;
-        this.name = name;
-        this.surName = surName;
+        this.setId(id);
+        this.setName(name);
+        this.setSurName(surName);
     }
 
-    public int getId() {
+    @Override
+    public Integer getId() {
         return this.Id;
     }
 
@@ -30,6 +31,10 @@ public class Personal {
 
     private void setSurName(String surName) {
         this.surName = surName;
+    }
+
+    public String toString(){
+       return this.getId() +"-"+ this.getName() + " " + this.getSurName();
     }
 
     private int Id;

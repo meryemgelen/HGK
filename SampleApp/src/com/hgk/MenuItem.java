@@ -1,18 +1,23 @@
 package com.hgk;
 
-import com.sun.istack.internal.Nullable;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
-public class MenuItem {
+public class MenuItem<T> {
     private int id;
     private int displayOrder;
     private int parentId;
     private String name;
+    private Supplier<T> funcRef;
 
-    public MenuItem(int Id, int displayOrder, String name, int parentId){
+    public MenuItem(int Id, int displayOrder, String name, int parentId,Supplier<T> func){
         this.setId(Id);
         this.setDisplayOrder(displayOrder);
         this.setName(name);
-        this.setParentId(parentId   );
+        this.setParentId(parentId);
+        this.funcRef=func;
     }
 
     public int getId() {
@@ -45,5 +50,9 @@ public class MenuItem {
 
     private void setParentId(int parentId) {
         this.parentId = parentId;
+    }
+
+    public Supplier<T> Func() {
+        return funcRef;
     }
 }

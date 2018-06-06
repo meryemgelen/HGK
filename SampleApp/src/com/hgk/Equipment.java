@@ -1,6 +1,6 @@
 package com.hgk;
 
-public class Equipment {
+public class Equipment implements DataItem<Integer> {
 
     private int Id;
     private String name;
@@ -10,5 +10,14 @@ public class Equipment {
         Id = id;
         this.name = name;
         this.equipmentType = equipmentType;
+    }
+
+    public String toString(){
+        return this.getId() +"-"+ this.name + " " + this.equipmentType.getDangerLevel();
+    }
+
+    @Override
+    public Integer getId() {
+        return this.Id;
     }
 }
