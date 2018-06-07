@@ -14,6 +14,10 @@ public class DataManager<T> {
     }
 
     public List<T> getById(int Id){
-        return this.data.stream().filter(p->((DataItem<Integer>)p).getId()==Id).collect(Collectors.toList());
+        return this.data.parallelStream().filter(p->((DataItem<Integer>)p).getId()==Id).collect(Collectors.toList());
+    }
+
+    public List<T> searchByKeyword(String keyword){
+        return this.data.parallelStream().filter(p->p.toString().contains(keyword)).collect(Collectors.toList());
     }
 }
