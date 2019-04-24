@@ -1,0 +1,1 @@
+CREATE DATABASE hgm TEMPLATE template0 LC_COLLATE 'tr_TR.utf8' LC_CTYPE 'tr_TR.utf8';
